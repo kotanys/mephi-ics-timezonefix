@@ -85,9 +85,7 @@ func fixUpICS(ics string) string {
 	}
 
 	re := regexp.MustCompilePOSIX("DT(START|END):")
-	repl := fmt.Sprintf("DT$1;TZID=%v:", timezone)
-	log.Println(repl)
-	icsFixed := re.ReplaceAllString(ics, repl)
+	icsFixed := re.ReplaceAllString(ics, fmt.Sprintf("DT$1;TZID=%v:", timezone))
 	return icsFixed
 }
 
