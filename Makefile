@@ -12,6 +12,8 @@ $(SERVER) : $(SERVERDIR)/*.go
 
 install-local : $(SERVERNAME)
 	install -C $(SERVER) ~/.local/bin/$(SERVERNAME)
+	install -C ./init/icstz-server.service ~/.config/systemd/user/$(SERVERNAME).service
 
 uninstall-local :
 	rm -f ~/.local/bin/$(SERVERNAME)
+	rm -f ~/.config/systemd/user/$(SERVERNAME).service

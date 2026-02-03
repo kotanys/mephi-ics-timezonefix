@@ -1,0 +1,16 @@
+[Unit]
+Description=Mephi ICS Timezone fix server
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/.local/bin
+ExecStart=%h/.local/bin/icstz-server 24501
+ExecStopPost=/usr/bin/env echo "server is stopped"
+KillSignal=SIGINT
+SendSIGKILL=yes
+TimeoutStopSec=5
+PIDFile=/run/icstz-server.pid
+
+[Install]
+WantedBy=graphical-session.target
