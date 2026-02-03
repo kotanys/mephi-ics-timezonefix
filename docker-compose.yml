@@ -1,0 +1,8 @@
+services:
+  icstz-server:
+    build: 
+      context: .
+      dockerfile: ./init/Dockerfile
+    ports:
+      - "24501:24501"
+    restart: unless-stopped

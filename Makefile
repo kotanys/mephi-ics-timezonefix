@@ -17,3 +17,5 @@ install-local : $(SERVERNAME)
 uninstall-local :
 	rm -f ~/.local/bin/$(SERVERNAME)
 	rm -f ~/.config/systemd/user/$(SERVERNAME).service
+
+.PHONY : install-local uninstall-local
